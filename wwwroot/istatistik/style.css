@@ -1,0 +1,23 @@
+.sidebar { 
+    min-height: 100vh; 
+    background-color: #fff; 
+    border-right: 1px solid #dee2e6; 
+}
+.nav-link { 
+    color: #333; 
+    font-weight: 500; 
+}
+.nav-link:hover, .nav-link.active { 
+    background-color: #f8f9fa; 
+    color: #0d6efd; 
+}
+.nav-link i { 
+    width: 25px; 
+}
+
+       
+.chart-container {
+    position: relative;
+    height: 300px; 
+    width: 100%;
+}
