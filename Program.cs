@@ -1,4 +1,9 @@
+using Akilli_Kutuphane_Yonetim_Sistemi.Database;
+using Akilli_Kutuphane_Yonetim_Sistemi.Database;
 var builder = WebApplication.CreateBuilder(args);
+
+
+builder.Services.AddSingleton<DatabaseConnection>();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
