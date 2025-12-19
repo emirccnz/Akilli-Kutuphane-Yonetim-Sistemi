@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Akıllı Kütüphane Yönetim Sistemi - Öğrenci</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="logo-area">
+        <div class="logo-circle">AK</div>
+        <div class="logo-text">
+          <h1>Akıllı Kütüphane</h1>
+          <span>Öğrenci Arayüzü</span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <div class="user-info">
+        
+          <span id="user-name">Öğrenci Adı</span>
+          <span class="user-role">Öğrenci</span>
+        </div>
+        <button class="btn btn-outline" id="btn-logout">Çıkış</button>
+      </div>
+    </header>
+
+    <main class="app-layout">
+      <aside class="sidebar">
+        <nav class="nav-menu">
+          <button class="nav-item active">
+            <span>📚</span>
+            <span>Kitap Arama</span>
+          </button>
+        </nav>
+
+        <section class="sidebar-section">
+          <h2>Kısa Özet</h2>
+          <ul class="summary-list">
+            <li>
+              <span class="label">Aktif talepler</span>
+              <span class="value" id="summary-active-requests">0</span>
+            </li>
+            <li>
+              <span class="label">Beklemede</span>
+              <span class="value" id="summary-pending-requests">0</span>
+            </li>
+            <li>
+              <span class="label">Gecikmiş</span>
+              <span class="value warning" id="summary-overdue">0</span>
+            </li>
+          </ul>
+        </section>
+      </aside>
+
+      <section class="content">
+       
+        <section class="view active" id="search-view">
+          <header class="view-header">
+            <div>
+              <h2>Kitap Arama ve İnceleme</h2>
+              <p>Kitapları kategoriye, yazara, yayın yılına göre filtreleyin.</p>
+            </div>
+          </header>
+
+          <section class="search-panel">
+            <div class="search-row">
+              <div class="search-group full">
+                <label for="search-query">Hızlı Arama</label>
+                <div class="search-input-wrapper">
+                  <input
+                    type="text"
+                    id="search-query"
+                    placeholder="Kitap adı, yazar, ISBN..."
+                  />
+                  <button class="btn btn-primary" id="btn-search">Ara</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="search-row">
+              <div class="search-group">
+                <label for="filter-category">Kategori</label>
+                <select id="filter-category">
+                  <option value="">Hepsi</option>
+                  <option value="Bilim Kurgu">Bilim Kurgu</option>
+                  <option value="Klasik">Klasik</option>
+                  <option value="Tarih">Tarih</option>
+                  <option value="Roman">Roman</option>
+                  <option value="Kategori 1">Kategori 1</option>
+                  <option value="Kategori 2">Kategori 2</option>
+                  <option value="Kategori 3">Kategori 3</option>
+                </select>
+              </div>
+              <div class="search-group">
+                <label for="filter-author">Yazar</label>
+                <input
+                  type="text"
+                  id="filter-author"
+                  placeholder="Örn: Orhan Pamuk"
+                />
+              </div>
+              <div class="search-group">
+                <label for="filter-year">Yayın Yılı</label>
+                <input
+                  type="number"
+                  id="filter-year"
+                  min="1900"
+                  max="2100"
+                  placeholder="Örn: 2020"
+                />
+              </div>
+            </div>
+          </section>
+
+          <section class="results-layout">
+            <div class="results-list-card">
+              <header class="results-header">
+                <h3>Arama Sonuçları</h3>
+                <span id="results-count">0 kitap bulundu</span>
+              </header>
+
+              <ul class="book-list" id="book-list">
+               
+              </ul>
+            </div>
+
+            <aside class="details-card" id="book-details-panel">
+              <header>
+                <h3>Kitap Detayları</h3>
+              </header>
+              <div class="details-body empty" id="book-details-body">
+                <p>Bir kitap seçerek detaylarını görebilirsiniz.</p>
+              </div>
+            </aside>
+          </section>
+
+          
+          <section class="table-card" style="margin-top: 10px">
+            <h3 style="margin-top: 0; font-size: 14px">Taleplerim</h3>
+            <ul id="simple-requests-list" style="list-style: none; padding-left: 0; font-size: 13px">
+              <li style="color: #4b5563">Henüz bir ödünç talebiniz yok.</li>
+            </ul>
+          </section>
+        </section>
+
+      </section>
+    </main>
+
+  
+    <div class="modal-backdrop hidden" id="request-modal">
+      <div class="modal">
+        <header class="modal-header">
+          <h3>Ödünç Alma Talebi</h3>
+          <button class="icon-button" id="close-request-modal">&times;</button>
+        </header>
+        <div class="modal-body">
+          <p>
+            <strong id="request-book-title"></strong> adlı kitabı ödünç almak
+            istediğinizden emin misiniz?
+          </p>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="request-start-date">Başlangıç Tarihi</label>
+              <input type="date" id="request-start-date" />
+            </div>
+            <div class="form-group">
+              <label for="request-end-date">Bitiş Tarihi</label>
+              <input type="date" id="request-end-date" />
+            </div>
+          </div>
+        </div>
+        <footer class="modal-footer">
+          <button class="btn btn-outline" id="cancel-request">Vazgeç</button>
+          <button class="btn btn-primary" id="confirm-request">
+            Talep Gönder
+          </button>
+        </footer>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
+
+

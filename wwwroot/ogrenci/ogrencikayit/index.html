@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Öğrenci Kayıt</title>
+  <link rel="stylesheet" href="../ogrencigiris/style.css">
+</head>
+<body>
+
+  <nav class="auth-navbar">
+    
+    <div class="navbar-left">
+      <div class="logo">AK</div>
+  
+      <div class="title-box">
+        <span class="main-title">Akıllı Kütüphane</span>
+        <span class="sub-title">Giriş Arayüzü</span>
+      </div>
+    </div>
+  
+    
+    <div class="nav-links">
+      <a href="../ogrencigiris/index.html" class="active">Öğrenci</a>
+      <a href="../personelgiris/index.html">Personel</a>
+      <a href="../yoneticigiris/index.html">Yönetici</a>
+    </div>
+  </nav>
+
+<div class="auth-wrapper">
+  <div class="auth-card">
+    <h2>Öğrenci Kayıt</h2>
+    <p class="subtitle">Lütfen Tüm Bilgileri Eksiksiz Doldurunuz</p>
+
+    <form id="ogrenciKayitForm">
+
+      <input type="text" id="ad" placeholder="Ad">
+      <input type="text" id="soyad" placeholder="Soyad">
+      <input type="text" id="ogrenciNo" placeholder="Öğrenci No">
+      <input type="tel" id="telefon" placeholder="Telefon">
+      <input type="email" id="email" placeholder="E-posta">
+      <input type="password" id="sifre" placeholder="Şifre">
+
+      <button type="submit">Kayıt Ol</button>
+    </form>
+
+    <p id="hataMesaji" class="hata"></p>
+
+    <p class="link">
+      <a href="../ogrencigiris/index.html">Hesabım var</a>
+    </p>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+.auth-navbar {
+  background: #1f2937;
+  color: white;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  background: linear-gradient(135deg,#6366f1,#8b5cf6);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.title-box {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.main-title {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.sub-title {
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+
+.nav-links a {
+  color: #d1d5db;
+  text-decoration: none;
+  margin-left: 18px;
+  font-size: 14px;
+}
+
+.nav-links a.active {
+  color: white;
+  font-weight: bold;
+}
+
+.auth-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px 20px;
+}
+
+
+
+.auth-card {
+  width: 100%;
+  max-width: 520px;  
+  padding: 50px 55px;
+
+  background: white;
+  border-radius: 18px;
+
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.12),
+    0 8px 20px rgba(0,0,0,0.08);
+}
+
+.auth-card h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 35px;
+}
+.subtitle {
+  text-align: center;
+  font-size: 15px;
+  color: #6b7280;
+  margin-bottom: 30px;
+}
+
+.auth-card input {
+  width: 100%;
+  padding: 16px;
+  font-size: 16px;
+
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+
+  margin-bottom: 22px; 
+  outline: none;
+  transition: .2s;
+}
+
+.auth-card input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99,102,241,.15);
+}
+
+
+.auth-card button {
+  width: 50%;
+  padding: 25px;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-left: 8rem;
+  border-radius: 40px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+
+.auth-card button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 15px rgba(99,102,241,.3);
+}
+.hata {
+  margin-top: 15px;
+  color: #dc2626;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 500;
+}
+.link {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 14px;
+}
+
